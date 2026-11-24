@@ -1,0 +1,100 @@
+{
+  "status": "ready_to_settle",
+  "organization": "Veridian Ops Distributed Engineering Studio",
+  "namedUser": "Andrey — Founder & Operations Lead, Veridian Distributed Studio",
+  "chainId": 42220,
+  "attributionTag": "celo_76dc8c3315b1",
+  "settlementContract": "0xa9AA0a64769cBed4d3B1Ceb4Df01CdE915C235b3",
+  "erc8004Registry": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
+  "generatedAt": "2026-11-24T18:00:18.986Z",
+  "policyCheck": {
+    "ok": true,
+    "totalUsdtHuman": "43.000000",
+    "capUsdtHuman": "100",
+    "utilizationPct": 43
+  },
+  "economics": {
+    "totalPayouts": 5,
+    "totalTextileFeesUsdt": 0.008595,
+    "traditionalSwiftBaselineUsd": 160,
+    "estimatedSavingsUsd": 159.99,
+    "settlementTimeSeconds": 5
+  },
+  "items": [
+    {
+      "contractor": "Lucas Ferreira (Sao Paulo, BR)",
+      "role": "Frontend & Smart Contract QA",
+      "recipient": "0xF3c1a43c79Ba76193Ab73cc4e9C22B6ff08e078e",
+      "currency": "wBRL",
+      "region": "Brazil",
+      "amountUsdt": "15",
+      "quoteStatus": "preview",
+      "estimatedLocalAmount": "88.5634",
+      "effectiveRate": 5.9042,
+      "textileFeeUsdt": "0.002999",
+      "feeBps": 2,
+      "ripioRampLink": "https://ramp.ripio.com/?country=BR&chain=42220&token=WBRL&amount=88&address=0xF3c1a43c79Ba76193Ab73cc4e9C22B6ff08e078e",
+      "reason": null
+    },
+    {
+      "contractor": "Mateo Alvarez (Buenos Aires, AR)",
+      "role": "Security Research & Telemetry",
+      "recipient": "0x1111111111111111111111111111111111111112",
+      "currency": "wARS",
+      "region": "Argentina",
+      "amountUsdt": "12",
+      "quoteStatus": "preview",
+      "estimatedLocalAmount": "21388.0424",
+      "effectiveRate": 1782.3369,
+      "textileFeeUsdt": "0.002399",
+      "feeBps": 2,
+      "ripioRampLink": "https://ramp.ripio.com/?country=AR&chain=42220&token=WARS&amount=21388&address=0x1111111111111111111111111111111111111112",
+      "reason": null
+    },
+    {
+      "contractor": "Chinedu Okafor (Lagos, NG)",
+      "role": "Backend & RPC Reliability Engineer",
+      "recipient": "0x1111111111111111111111111111111111111113",
+      "currency": "cNGN",
+      "region": "Nigeria",
+      "amountUsdt": "10",
+      "quoteStatus": "preview",
+      "estimatedLocalAmount": "14469.6619",
+      "effectiveRate": 1446.9662,
+      "textileFeeUsdt": "0.001999",
+      "feeBps": 2,
+      "ripioRampLink": null,
+      "reason": null
+    },
+    {
+      "contractor": "Camila Rojas (Bogota, CO)",
+      "role": "Technical Documentation & Localization",
+      "recipient": "0x1111111111111111111111111111111111111114",
+      "currency": "wCOP",
+      "region": "Colombia",
+      "amountUsdt": "1",
+      "quoteStatus": "preview",
+      "estimatedLocalAmount": "3563.9336",
+      "effectiveRate": 3563.9337,
+      "textileFeeUsdt": "0.000199",
+      "feeBps": 1.99,
+      "ripioRampLink": "https://ramp.ripio.com/?country=CO&chain=42220&token=WCOP&amount=3563&address=0x1111111111111111111111111111111111111114",
+      "reason": null
+    },
+    {
+      "contractor": "Rizky Pratama (Jakarta, ID)",
+      "role": "Data Indexing & Subgraph Ops",
+      "recipient": "0x1111111111111111111111111111111111111115",
+      "currency": "IDRX",
+      "region": "Indonesia",
+      "amountUsdt": "5",
+      "quoteStatus": "preview",
+      "estimatedLocalAmount": "91576.6",
+      "effectiveRate": 18315.32,
+      "textileFeeUsdt": "0.000999",
+      "feeBps": 2,
+      "ripioRampLink": null,
+      "reason": null
+    }
+  ]
+}

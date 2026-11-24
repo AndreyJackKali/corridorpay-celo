@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CorridorPay — Pitch Deck (Celo: Agents Open for Business)</title>
+  <style>
+    :root { --bg:#080d13; --panel:#101822; --border:#213146; --yellow:#fcff52; --mint:#35d07f; --cyan:#38bdf8; --text:#f1f5f9; --muted:#94a3b8; }
+    * { box-sizing:border-box; font-family:Inter,system-ui,-apple-system,sans-serif; }
+    body { margin:0; background:var(--bg); color:var(--text); height:100vh; overflow:hidden; display:flex; flex-direction:column; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; padding:12px 24px; background:var(--panel); border-bottom:1px solid var(--border); font-size:13px; }
+    .topbar a { color:var(--yellow); text-decoration:none; font-weight:600; margin-left:16px; }
+    .stage { flex:1; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .slide { display:none; width:100%; max-width:1080px; background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:42px 48px; box-shadow:0 24px 60px rgba(0,0,0,.5); }
+    .slide.active { display:block; }
+    .kicker { color:var(--yellow); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; margin-bottom:10px; }
+    h1 { font-size:40px; line-height:1.12; margin:0 0 16px; }
+    h2 { font-size:32px; line-height:1.2; margin:0 0 18px; }
+    p.lead { font-size:18px; color:var(--muted); margin:0 0 26px; max-width:820px; line-height:1.55; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:18px; }
+    .card { background:#0b1119; border:1px solid var(--border); border-radius:14px; padding:20px; }
+    .kpi { font-size:30px; font-weight:800; color:var(--mint); margin:6px 0; font-family:ui-monospace,monospace; }
+    .kpi.y { color:var(--yellow); }
+    .kpi.c { color:var(--cyan); }
+    .lbl { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    table { width:100%; border-collapse:collapse; font-size:14px; margin-top:14px; }
+    th, td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); }
+    th { color:var(--muted); font-size:12px; text-transform:uppercase; }
+    .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; color:#cbd5e1; }
+    ul { padding-left:20px; line-height:1.8; font-size:16px; color:#dbe5f1; }
+    .controls { display:flex; justify-content:space-between; align-items:center; padding:14px 28px; background:var(--panel); border-top:1px solid var(--border); }
+    button { background:#182433; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:8px 18px; font-weight:600; cursor:pointer; }
+    button.primary { background:var(--yellow); color:#080d13; border-color:var(--yellow); }
+    .dots { display:flex; gap:8px; }
+    .dot { width:10px; height:10px; border-radius:999px; background:#24354a; cursor:pointer; }
+    .dot.active { background:var(--yellow); width:26px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div><strong style="color:var(--yellow)">CorridorPay</strong> · Celo Mainnet (42220) · Track 1 (Textile FX) &amp; Track 4 (Altana Agent Wallets)</div>
+    <div>
+      <a href="./index.html">Live App</a>
+      <a href="./demo.mp4">Demo Video</a>
+      <a href="https://github.com/AndreyJackKali/corridorpay-celo" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </div>
+
+  <div class="stage">
+    <!-- Slide 1 -->
+    <section class="slide active">
+      <div class="kicker">Celo: Agents Open for Business · Track 1 + Track 4</div>
+      <h1>CorridorPay</h1>
+      <p class="lead">Autonomous, non-custodial cross-border stablecoin payroll &amp; supplier settlement agent on Celo Mainnet — combining <strong>Textile FX RFQ v2</strong> local currency corridors with <strong>Altana on-chain Keystore session keys</strong>, <strong>ERC-8004</strong> identity, and <strong>ERC-8021</strong> attribution.</p>
+      <div class="grid">
+        <div class="card"><div class="lbl">Live FX Corridors</div><div class="kpi">5 Active</div><div>wBRL · wARS · cNGN · wCOP · IDRX</div></div>
+        <div class="card"><div class="lbl">Measured Wire Savings</div><div class="kpi y">$159.99</div><div>~$0.0086 FX fee vs. $160 SWIFT batch</div></div>
+        <div class="card"><div class="lbl">Custody Risk</div><div class="kpi c">Zero Keys</div><div>Scoped Altana session + 1-tx revoke</div></div>
+        <div class="card"><div class="lbl">Automated Tests</div><div class="kpi">9 / 9 PASS</div><div>Live Celo RPC + Textile FX + ERC-8021</div></div>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide">
+      <div class="kicker">02 · Real User &amp; Broken Status Quo</div>
+      <h2>Paying Distributed Contractors Shouldn't Cost $160 or Expose Keys</h2>
+      <p class="lead"><strong>Named User:</strong> Andrey, Operations Lead at Veridian Distributed Studio, paying 5 remote engineers &amp; analysts across Brazil, Argentina, Nigeria, Colombia, and Indonesia from a single USD₮ treasury.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="lbl" style="color:#f87171">Traditional Wire Rails</div>
+          <ul>
+            <li>$30–$45 SWIFT fee + 3–5% bank FX markup (~$160 per 5-person cycle)</li>
+            <li>3–5 business day settlement delays &amp; failed intermediary hops</li>
+            <li>Manual spreadsheet reconciliation every payroll window</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="lbl" style="color:var(--mint)">Naive AI Agent Wallets</div>
+          <ul>
+            <li>Handing a raw EOA private key to an AI agent = total treasury loss risk</li>
+            <li>No on-chain daily cap, no contract allowlist, no kill switch</li>
+            <li>No verifiable attribution or on-chain agent identity</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <div class="kicker">03 · End-to-End Architecture</div>
+      <h2>Policy Engine → Textile FX RFQ v2 → Altana Keystore → Celo Mainnet</h2>
+      <div class="card mono" style="line-height:1.8;font-size:14px;">
+        [Invoice Manifest JSON (examples/payroll.json)]<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;│<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;▼ 1. Pre-flight Policy Engine (rejects self-transfer, cap breach, unknown token)<br/>
+        [Textile FX RFQ v2 API (api.textilecredit.com/v2/rfq)]<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;│ live Celo Mainnet quotes · ~2 bps fee · EIP-712 takerProof firm calldata<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;▼ 2. Atomic Batch Calls (approve USD₮ → LimitOrderReactor → local stablecoin transfer)<br/>
+        [@altananetwork/sdk@1.2.0 Non-Custodial Smart Wallet (Chain 42220)]<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;│ • On-chain Keystore session key (daily USD₮ cap + strict contract allowlist + 7d expiry)<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;│ • Auto ERC-8004 identity registration (0x8004A169FB4a3325136EB29fA0ceB6D2e539a432)<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;│ • Auto ERC-8021 attribution suffix: altana,corridorpay,celo_76dc8c3315b1<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;▼ 3. Settlement &amp; Verification (~5s Celo block finality + @celo/attribution-tags verifyTx)
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <div class="kicker">04 · Track 1: Live Celo Mainnet Textile FX Corridors</div>
+      <h2>Real-Time Quotes Captured on Celo Mainnet (Chain ID 42220)</h2>
+      <table>
+        <thead><tr><th>Contractor</th><th>Corridor</th><th>USD₮ In</th><th>Local Output</th><th>Effective Rate</th><th>Textile Fee</th></tr></thead>
+        <tbody>
+          <tr><td>Lucas Ferreira (BR)</td><td><strong>wBRL</strong></td><td>15.00</td><td>88.5634 wBRL</td><td>5.9042</td><td>$0.0030 (2 bps)</td></tr>
+          <tr><td>Mateo Alvarez (AR)</td><td><strong>wARS</strong></td><td>12.00</td><td>21,388.04 wARS</td><td>1,782.34</td><td>$0.0024 (2 bps)</td></tr>
+          <tr><td>Chinedu Okafor (NG)</td><td><strong>cNGN</strong></td><td>10.00</td><td>14,469.66 cNGN</td><td>1,446.97</td><td>$0.0020 (2 bps)</td></tr>
+          <tr><td>Rizky Pratama (ID)</td><td><strong>IDRX</strong></td><td>5.00</td><td>91,576.60 IDRX</td><td>18,315.32</td><td>$0.0010 (2 bps)</td></tr>
+          <tr><td>Camila Rojas (CO)</td><td><strong>wCOP</strong></td><td>1.00</td><td>3,563.93 wCOP</td><td>3,563.93</td><td>$0.0002 (2 bps)</td></tr>
+        </tbody>
+      </table>
+      <p class="lead" style="margin-top:18px;margin-bottom:0;font-size:15px;">Total batch: <strong>43.00 USD₮</strong> · Total Textile FX fees: <strong>$0.008595 USD₮</strong> · Ripio off-ramp deep links auto-generated for BR/AR/CO.</p>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide">
+      <div class="kicker">05 · Track 4: Altana Non-Custodial Agent Wallet</div>
+      <h2>Hard On-Chain Guardrails via Altana Keystore Session Keys</h2>
+      <div class="grid">
+        <div class="card"><div class="lbl">1. Daily Spend Cap</div><div class="kpi y">$100 USD₮</div><div>Enforced on-chain in Altana Keystore; agent cannot drain treasury even if compromised.</div></div>
+        <div class="card"><div class="lbl">2. Contract Allowlist</div><div class="kpi">Strict Set</div><div>Only Textile <code>LimitOrderReactor</code>, <code>Permit2</code>, USD₮ &amp; approved local tokens.</div></div>
+        <div class="card"><div class="lbl">3. Instant Revocation</div><div class="kpi c">1 TX Kill</div><div>Owner calls <code>client.revokeSession()</code> at any moment; 7-day automatic expiry bound.</div></div>
+      </div>
+      <div class="card mono" style="margin-top:16px;">
+        Counterfactual Smart Account : 0x5C7852265dAC8d322d761ca5308D18986CCAb32C<br/>
+        ERC-8004 Identity Registry   : 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432 (live bytecode verified)<br/>
+        Textile LimitOrderReactor    : 0xa9AA0a64769cBed4d3B1Ceb4Df01CdE915C235b3 (live bytecode verified)
+      </div>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide">
+      <div class="kicker">06 · On-Chain Attribution &amp; Verifiability</div>
+      <h2>Byte-for-Byte Verified ERC-8021 Attribution Suffix</h2>
+      <p class="lead">Every CorridorPay transaction appends the official Loops House attribution tag automatically through <code>@altananetwork/sdk</code> and independently validates it with <code>@celo/attribution-tags@0.5.0</code>.</p>
+      <div class="card mono" style="line-height:1.9;">
+        Official Loops Tag  : celo_76dc8c3315b1<br/>
+        Altana App Suffix   : altana,corridorpay,celo_76dc8c3315b1<br/>
+        Encoded ERC-8021 Hex: 0x63656c6f5f373664633863333331356231110080218021802180218021802180218021<br/>
+        Verification Method : verifyTx(txHash) + decodeSuffix() tested in npm test (9/9 PASS)
+      </div>
+      <ul style="margin-top:18px;">
+        <li>Prevents treasury self-transfers in both CLI policy engine and execution script</li>
+        <li>Deterministic EIP-712 <code>takerProof</code> signing for firm Textile FX execution calldata</li>
+      </ul>
+    </section>
+
+    <!-- Slide 7 -->
+    <section class="slide">
+      <div class="kicker">07 · Verification &amp; Reproducibility</div>
+      <h2>Open-Source, CI-Verified, One-Command Mainnet Ready</h2>
+      <div class="grid">
+        <div class="card"><div class="lbl">Automated Test Suite</div><div class="kpi">9 / 9 PASS</div><div>Live Celo RPC bytecode, live Textile FX RFQ v2, Altana SDK v1.2.0 &amp; ERC-8021 checks.</div></div>
+        <div class="card"><div class="lbl">Interactive Dashboard</div><div class="kpi c">HTTP 200</div><div>Live GitHub Pages frontend querying Textile FX directly in browser + local API server.</div></div>
+        <div class="card"><div class="lbl">Mainnet Executor</div><div class="kpi y">1 Script</div><div><code>scripts/execute_mainnet.mjs</code> handles ERC-8004, Altana session grant, FX swap &amp; verifyTx.</div></div>
+      </div>
+      <div class="card mono" style="margin-top:16px;">
+        git clone https://github.com/AndreyJackKali/corridorpay-celo &amp;&amp; cd corridorpay-celo<br/>
+        npm install &amp;&amp; npm test &amp;&amp; npm run plan &amp;&amp; npm run serve
+      </div>
+    </section>
+
+    <!-- Slide 8 -->
+    <section class="slide">
+      <div class="kicker">08 · Roadmap &amp; Links</div>
+      <h2>Ready for Real-World Emerging-Market Treasury Ops on Celo</h2>
+      <ul>
+        <li><strong>Immediate:</strong> Execute live Celo Mainnet settlement batch (`USDT → wBRL/cNGN`) upon hackathon faucet funding &amp; publish CeloScan verified tx proofs.</li>
+        <li><strong>Phase 2:</strong> Recurring bi-weekly payroll schedules with invoice PDF parsing, Slack/Telegram approval notifications, and multi-sig treasury admin policies.</li>
+        <li><strong>Phase 3:</strong> Auto-routing across Ripio / MiniPay off-ramps for instant fiat bank arrival in LATAM &amp; Africa.</li>
+      </ul>
+      <div class="card mono" style="margin-top:18px;line-height:1.9;">
+        Live App   : https://andreyjackkali.github.io/corridorpay-celo/<br/>
+        Pitch Deck : https://andreyjackkali.github.io/corridorpay-celo/deck.html<br/>
+        Demo Video : https://andreyjackkali.github.io/corridorpay-celo/demo.mp4<br/>
+        GitHub     : https://github.com/AndreyJackKali/corridorpay-celo
+      </div>
+    </section>
+  </div>
+
+  <div class="controls">
+    <button onclick="go(-1)">← Previous</button>
+    <div class="dots" id="dots"></div>
+    <div>
+      <span id="counter" style="color:var(--muted);margin-right:12px;font-size:13px;">1 / 8</span>
+      <button class="primary" onclick="go(1)">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const dotsEl = document.getElementById('dots');
+    let idx = 0;
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => show(i);
+      dotsEl.appendChild(d);
+    });
+    function show(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+      [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+      document.getElementById('counter').textContent = `${idx + 1} / ${slides.length}`;
+    }
+    function go(d) { show(idx + d); }
+    window.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') go(1);
+      if (e.key === 'ArrowLeft') go(-1);
+    });
+  </script>
+</body>
+</html>

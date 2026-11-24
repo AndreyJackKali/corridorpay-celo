@@ -1,5 +1,11 @@
 # CorridorPay — Autonomous Non-Custodial Stablecoin Payroll & Supplier Settlement Agent on Celo Mainnet
 
+[![CorridorPay CI](https://github.com/AndreyJackKali/corridorpay-celo/actions/workflows/ci.yml/badge.svg)](https://github.com/AndreyJackKali/corridorpay-celo/actions/workflows/ci.yml)
+
+- **Live Dashboard:** https://andreyjackkali.github.io/corridorpay-celo/
+- **8-Slide Pitch Deck:** https://andreyjackkali.github.io/corridorpay-celo/deck.html
+- **Narrated HD Demo Video:** https://andreyjackkali.github.io/corridorpay-celo/demo.mp4
+
 Built for **Celo: Agents Open for Business** (Loops House) targeting:
 - **Track 1: Stablecoin Corridors (Textile FX)** — USD₮ to local Celo stablecoins (`wBRL`, `wARS`, `cNGN`, `wCOP`, `IDRX`)
 - **Track 4: Altana Agent Wallets** — Non-custodial Altana Smart Wallet with on-chain Keystore session key (daily USD₮ spend cap, strict contract allowlist, bounded expiry, 1-tx revoke)
