@@ -1,0 +1,43 @@
+{
+  "organization": "Veridian Ops Distributed Engineering Studio",
+  "namedUser": "Andrey — Founder & Operations Lead, Veridian Distributed Studio",
+  "cycle": "2026-11-W4",
+  "fundingCurrency": "USDT",
+  "payouts": [
+    {
+      "contractor": "Lucas Ferreira (Sao Paulo, BR)",
+      "role": "Frontend & Smart Contract QA",
+      "recipient": "0xF3c1a43c79Ba76193Ab73cc4e9C22B6ff08e078e",
+      "currency": "wBRL",
+      "amountUsdt": "15"
+    },
+    {
+      "contractor": "Mateo Alvarez (Buenos Aires, AR)",
+      "role": "Security Research & Telemetry",
+      "recipient": "0x1111111111111111111111111111111111111112",
+      "currency": "wARS",
+      "amountUsdt": "12"
+    },
+    {
+      "contractor": "Chinedu Okafor (Lagos, NG)",
+      "role": "Backend & RPC Reliability Engineer",
+      "recipient": "0x1111111111111111111111111111111111111113",
+      "currency": "cNGN",
+      "amountUsdt": "10"
+    },
+    {
+      "contractor": "Camila Rojas (Bogota, CO)",
+      "role": "Technical Documentation & Localization",
+      "recipient": "0x1111111111111111111111111111111111111114",
+      "currency": "wCOP",
+      "amountUsdt": "1"
+    },
+    {
+      "contractor": "Rizky Pratama (Jakarta, ID)",
+      "role": "Data Indexing & Subgraph Ops",
+      "recipient": "0x1111111111111111111111111111111111111115",
+      "currency": "IDRX",
+      "amountUsdt": "5"
+    }
+  ]
+}
