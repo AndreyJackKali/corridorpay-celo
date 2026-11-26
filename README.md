@@ -3,6 +3,7 @@
 [![CorridorPay CI](https://github.com/AndreyJackKali/corridorpay-celo/actions/workflows/ci.yml/badge.svg)](https://github.com/AndreyJackKali/corridorpay-celo/actions/workflows/ci.yml)
 
 - **Live Dashboard:** https://andreyjackkali.github.io/corridorpay-celo/
+- **1-Page Printable Judge Brief (Celo Loops House):** https://andreyjackkali.github.io/corridorpay-celo/judge-brief.html
 - **8-Slide Pitch Deck:** https://andreyjackkali.github.io/corridorpay-celo/deck.html
 - **Narrated HD Demo Video:** https://andreyjackkali.github.io/corridorpay-celo/demo.mp4
 

@@ -40,8 +40,9 @@
         <h1>CorridorPay Agent</h1>
         <p class="sub">Non-custodial cross-border stablecoin payroll &amp; supplier settlement agent. Converts USD₮ into local Celo stablecoins (wBRL, wARS, cNGN, wCOP, IDRX) under an Altana on-chain spend cap &amp; allowlist with ERC-8021 tag <code class="mono">celo_76dc8c3315b1</code>.</p>
         <div class="row" style="margin-top:12px;margin-bottom:0;">
+          <a href="./judge-brief.html" class="badge" style="text-decoration:none;color:var(--accent);border-color:rgba(252,255,82,.45);">1-Page Judge Brief ↗</a>
           <a href="./deck.html" class="badge" style="text-decoration:none;color:var(--mint);">8-Slide Pitch Deck ↗</a>
-          <a href="./demo.mp4" class="badge" style="text-decoration:none;color:var(--yellow);">Narrated HD Demo Video ↗</a>
+          <a href="./demo.mp4" class="badge" style="text-decoration:none;color:var(--accent);">Narrated HD Demo Video ↗</a>
           <a href="https://github.com/AndreyJackKali/corridorpay-celo" target="_blank" rel="noreferrer" class="badge" style="text-decoration:none;color:var(--text);">GitHub Repo ↗</a>
         </div>
       </div>
@@ -82,6 +83,16 @@
       <h2 style="margin:0 0 10px;font-size:18px;">On-Chain Security &amp; Attribution Verification (Celo Mainnet)</h2>
       <div class="mono" id="contractsBox">Loading Celo Mainnet contract bindings…</div>
     </div>
+
+    <footer style="margin-top:24px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
+      <span>CorridorPay · Celo Mainnet (42220) · Textile FX + Altana · MIT License</span>
+      <span style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="./judge-brief.html" style="color:var(--accent);text-decoration:none;font-weight:600;">1-Page Judge Brief</a>
+        <a href="./deck.html" style="color:var(--mint);text-decoration:none;">8-Slide Deck</a>
+        <a href="./demo.mp4" style="color:var(--mint);text-decoration:none;">86s HD Demo</a>
+        <a href="https://github.com/AndreyJackKali/corridorpay-celo" target="_blank" rel="noreferrer" style="color:var(--text);text-decoration:none;">GitHub ↗</a>
+      </span>
+    </footer>
   </div>
 
   <script>
@@ -99,15 +110,17 @@
 
     async function loadAll() {
       const cap = document.getElementById("capInput").value || "100";
+      const isStaticHost = window.location.hostname.endsWith("github.io") || window.location.protocol === "file:";
       try {
+        if (isStaticHost) throw new Error("static_host");
         const [cfg, rates, plan] = await Promise.all([
-          fetch("/api/config").then((r) => r.json()),
-          fetch("/api/rates?amount=10").then((r) => r.json()),
+          fetch("/api/config").then((r) => { if (!r.ok) throw new Error("no_api"); return r.json(); }),
+          fetch("/api/rates?amount=10").then((r) => { if (!r.ok) throw new Error("no_api"); return r.json(); }),
           fetch("/api/plan", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ dailyUsdtCapHuman: cap }),
-          }).then((r) => r.json()),
+          }).then((r) => { if (!r.ok) throw new Error("no_api"); return r.json(); }),
         ]);
         render(cfg, rates, plan);
       } catch (err) {
@@ -124,17 +137,41 @@
               const buyNum = d.buyAmount ? Number(d.buyAmount) / 10 ** TOKENS[sym].decimals : 0;
               return {
                 corridor: `USDT->${sym}`,
+                buySymbol: sym,
                 region: TOKENS[sym].region,
-                status: d.status,
+                status: d.status || "preview",
                 buyAmountFormatted: buyNum ? buyNum.toFixed(2) : "—",
                 effectiveRate: buyNum ? (buyNum / 10).toFixed(4) : "—",
                 feeFormatted: d.feeAmount ? (Number(d.feeAmount) / 1e6).toFixed(5) : "—",
               };
             } catch (e) {
-              return { corridor: `USDT->${sym}`, region: TOKENS[sym].region, status: "cors_or_offline" };
+              return { corridor: `USDT->${sym}`, buySymbol: sym, region: TOKENS[sym].region, status: "cors_or_offline" };
             }
           })
         );
+        const quoteBySym = Object.fromEntries(quotes.map((q) => [q.buySymbol, q]));
+        const sampleRows = [
+          { contractor: "Lucas Ferreira (Sao Paulo, BR)", role: "Frontend & Smart Contract QA", currency: "wBRL", region: "Brazil", amountUsdt: 15, recipient: "0xF3c1a43c79Ba76193Ab73cc4e9C22B6ff08e078e" },
+          { contractor: "Mateo Alvarez (Buenos Aires, AR)", role: "Security Research & Telemetry", currency: "wARS", region: "Argentina", amountUsdt: 12, recipient: "0x1111111111111111111111111111111111111112" },
+          { contractor: "Chinedu Okafor (Lagos, NG)", role: "Backend & RPC Reliability Engineer", currency: "cNGN", region: "Nigeria", amountUsdt: 10, recipient: "0x1111111111111111111111111111111111111113" },
+          { contractor: "Camila Rojas (Bogota, CO)", role: "Technical Documentation & Localization", currency: "wCOP", region: "Colombia", amountUsdt: 1, recipient: "0x1111111111111111111111111111111111111114" },
+          { contractor: "Rizky Pratama (Jakarta, ID)", role: "Data Indexing & Subgraph Ops", currency: "IDRX", region: "Indonesia", amountUsdt: 5, recipient: "0x1111111111111111111111111111111111111115" },
+        ];
+        const totalUsdt = 43;
+        const capNum = Number(cap) || 0;
+        const capOk = capNum >= totalUsdt;
+        const items = capOk
+          ? sampleRows.map((row) => {
+              const q = quoteBySym[row.currency];
+              const rate = q && q.effectiveRate && q.effectiveRate !== "—" ? Number(q.effectiveRate) : 0;
+              const fee10 = q && q.feeFormatted && q.feeFormatted !== "—" ? Number(q.feeFormatted) : 0;
+              return {
+                ...row,
+                estimatedLocalAmount: rate ? (rate * row.amountUsdt).toFixed(2) : "Live quote via CLI",
+                textileFeeUsdt: fee10 ? ((fee10 / 10) * row.amountUsdt).toFixed(5) : "~0.002",
+              };
+            })
+          : [];
         render(
           {
             contracts: {
@@ -147,9 +184,14 @@
           { timestamp: new Date().toISOString(), activeCorridors: quotes.filter((q) => q.status === "preview").length, totalCorridors: quotes.length, quotes },
           {
             status: "static_preview",
-            policyCheck: { totalUsdtHuman: "50.00", capUsdtHuman: cap },
+            policyCheck: {
+              ok: capOk,
+              totalUsdtHuman: totalUsdt.toFixed(2),
+              capUsdtHuman: cap,
+              errors: capOk ? [] : [`Total batch ($${totalUsdt.toFixed(2)} USD₮) exceeds Altana on-chain daily session spend cap ($${cap} USD₮)`],
+            },
             economics: { estimatedSavingsUsd: 159.99 },
-            items: [],
+            items,
           }
         );
       }
@@ -187,8 +229,8 @@
             </tr>`
           )
           .join("");
-      } else if (plan.policyCheck && !plan.policyCheck.ok) {
-        document.getElementById("planBody").innerHTML = `<tr><td colspan="6" style="color:#ff7b72;">Policy rejected: ${plan.policyCheck.errors.join("; ")}</td></tr>`;
+      } else if (plan.policyCheck && plan.policyCheck.ok === false) {
+        document.getElementById("planBody").innerHTML = `<tr><td colspan="6" style="color:#ff7b72;">Policy rejected: ${(plan.policyCheck.errors || ["Cap exceeded"]).join("; ")}</td></tr>`;
       }
 
       document.getElementById("contractsBox").innerHTML = `

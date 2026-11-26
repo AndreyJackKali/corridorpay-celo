@@ -22,6 +22,7 @@ Non-custodial Celo Mainnet payroll & supplier settlement agent that converts a s
 ## Public Links & Artifacts
 - **GitHub Repository:** https://github.com/AndreyJackKali/corridorpay-celo
 - **Live Interactive Dashboard:** https://andreyjackkali.github.io/corridorpay-celo/
+- **1-Page Printable Judge Brief:** https://andreyjackkali.github.io/corridorpay-celo/judge-brief.html
 - **8-Slide Pitch Deck:** https://andreyjackkali.github.io/corridorpay-celo/deck.html
 - **Narrated HD Demo Video:** https://andreyjackkali.github.io/corridorpay-celo/demo.mp4
 - **Logo SVG:** https://andreyjackkali.github.io/corridorpay-celo/logo.svg

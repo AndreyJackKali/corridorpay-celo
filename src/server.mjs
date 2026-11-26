@@ -32,6 +32,19 @@ const server = http.createServer(async (req, res) => {
       res.end(INDEX_HTML);
       return;
     }
+    if (req.method === "GET" && ["/judge-brief.html", "/deck.html", "/logo.svg", "/demo.mp4"].includes(url.pathname)) {
+      const filePath = path.join(__dirname, "../docs", url.pathname.slice(1));
+      if (fs.existsSync(filePath)) {
+        const ct = url.pathname.endsWith(".html")
+          ? "text/html; charset=utf-8"
+          : url.pathname.endsWith(".svg")
+            ? "image/svg+xml"
+            : "video/mp4";
+        res.writeHead(200, { "Content-Type": ct });
+        fs.createReadStream(filePath).pipe(res);
+        return;
+      }
+    }
     if (req.method === "GET" && url.pathname === "/api/config") {
       const policy = buildSessionPolicy({ dailyUsdtCapHuman: "100", expiryDays: 7 });
       return sendJson(res, 200, {
